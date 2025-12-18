@@ -1,4 +1,4 @@
-    *{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,15 +9,15 @@
     min-width: 100% !important;
     min-height: 100vh;
     position: relative;
+    
     .bg{
         overflow: hidden;
         display: flex;
         width: 100%;
         justify-content: space-between;
         height: 95vh;
-        // background: #000;
-        //background: rgb(4, 55, 65) ;
         position: relative;
+        
         .left{
             width: 35%;
             opacity: 50%;
@@ -27,6 +27,7 @@
             background-repeat: no-repeat;
             background-position: bottom;
         }
+        
         .center{
             color: rgb(66, 93, 114);
             width: 100%;
@@ -38,6 +39,7 @@
             justify-content: center;
             padding: 0 120px;
             padding-top: 70px;
+            
             p{
                 font-size: 30px;
                 font-family: cursive;
@@ -55,10 +57,12 @@
                 align-items: center;
                 gap: 100px;
                 margin-top: 40px;
+                
                 .appel, .mail{
                     display: flex;
                     align-items: center;
                     gap: 20px;
+                    
                     .iconCall, .iconMail{
                         font-size: 55px;
                         border: 1px solid rgb(0, 81, 179);
@@ -77,10 +81,10 @@
                             font-size: 15px;
                         }
                     }
-              
                 }
             }
         }
+        
         .bgHero{
             display: flex;
             height: calc(100% - 90px);
@@ -89,6 +93,7 @@
             z-index: 2;
             left: 0;
             bottom: 0;
+            
             .saryBg{
                 width: 60%;
                 height: 100%;
@@ -100,8 +105,6 @@
             .saryHero{
                 height: 100%;
                 width: 40%;
-                //background: url(../../assets/images/video/video.jpg);
-                //opacity: 20%;
                 background: url(../Assets/pexels-hillaryfox-1595391.jpg);
                 opacity: 40%;
                 width: 600px;
@@ -113,8 +116,8 @@
                 animation: aniSaryHero 700ms ease 600ms forwards;
             }
         }
+        
         .right{
-            // opacity: 100%;
             width: 28%;
             height: 100%;
             position: absolute;
@@ -127,22 +130,25 @@
             background-position: top;
         }
     }
+    
     .content{
         width: 100%;
         min-height: 100vh;
         background: #e1e0e0;
         padding-bottom: 50px;
+        
         .about{
             padding: 80px 120px 50px 120px;
+            
             .aboutContent{
                 display: flex;
                 align-items: center;
                 gap: 50px;
+                
                 .sary{
                     width: 600px;
                     min-width: 600px;
-                    height: 500px;
-                    //background: url(../Assets/about.jpg);
+                    height: 600px;
                     background: url(../Assets/pexels-olly-3762800.jpg);
                     background-size: cover;
                     background-position: center;
@@ -153,7 +159,8 @@
                     flex-direction: column;
                     justify-content: space-between;
                     width: 100%;
-                    height: 500px;
+                    height: 600px;
+                    
                     .titre{
                         .title{
                             font-size: 25px;
@@ -174,24 +181,42 @@
                         justify-content: space-between;
                         gap: 20px;
                         width: 100%;
-                        height: 180px;
+                        height: 160px;
+                        
                         .cadre{
                             width: 49%;
                             height: 100%;
                             background: rgba(164, 177, 188, 0.65);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            font-size: 30px;
+                            h3{
+                                font-size: 20px;
+                                font-weight: bolder;
+                                color: rgba(1, 27, 37, 0.812);
+                                margin-top: 10px;
+                            }
+                            p{
+                                font-size: 16px;
+                            }
                         }
                     }
                 }
             }
+            
             .about_call{
                 display: flex;
                 margin-top: 20px;
                 align-items: center;
                 gap: 50px;
+                
                 .call{
                     display: flex;
                     align-items: center;
                     gap: 5px;
+                    
                     .callI{
                         width: 80px;
                         height: 80px;
@@ -207,6 +232,7 @@
                         flex-direction: column;
                         justify-content: center;
                         padding: 0 20px;
+                        
                         p{
                             font-size: 20px;
                         }
@@ -220,6 +246,8 @@
                     height: 80px;
                     border: 2px solid rgb(2, 56, 68);
                     padding: 2px;
+                    cursor: pointer;
+                    
                     p{
                         width: 100%;
                         height: 100%;
@@ -232,9 +260,11 @@
                 }
             }
         }
+        
         .services{
             width: 100%;
             padding: 50px 120px;
+            
             .titre{
                 margin-top: 30px;
                 display: flex;
@@ -242,6 +272,7 @@
                 align-items: center;
                 justify-content: center;
                 text-align: center;
+                
                 .title{
                     font-size: 23px;
                     font-weight: bolder;
@@ -256,24 +287,164 @@
                 background: rgba(164, 177, 188, 0.65);
                 width: 100%;
                 height: 500px;
+                min-height: 500px;
                 margin-top: 80px;
                 display: flex;
                 flex-direction: column;
                 gap: 1px;
+                
                 .cadreS{
                     width: 100%;
                     height: 50%;
+                    min-height: 50%;
                     display: flex;
                     align-items: center;
                     gap: 1px;
+                    
                     .cadre{
                         background: #e1e0e0;
                         width: 50%;
                         height: 100%;
+                        min-height: 100%;
                     }
                 }
             }
         }
+        
+        .contactSection{
+            padding: 50px 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            
+            .contact_detail{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 500px;
+                padding: 30px;
+                
+                h3{
+                    font-weight: bolder;
+                    font-size: 22px;
+                }
+                .block_contact{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    
+                    .bl{
+                        width: 100%;
+                        display: flex; 
+                        align-items: center;
+                        gap: 20px;
+                        
+                        .block{
+                            width: 50%;
+                            height: 90px;
+                            min-height: 90px;
+                            background: rgba(255, 255, 255, 0.431);
+                            box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.076);
+                            border: 1px solid rgba(0,0,0,0.15);
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 25px;
+                            gap: 10px;
+                            p{
+                                font-size: 16px;
+                                font-weight: bolder;
+                            }
+                        }
+                    }
+                }
+            }
+            .cotact_from{
+                background: rgba(164, 177, 188, 0.65);
+                width: 40%;
+                height: 500px;
+                border-radius: 5px;
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+                h3{
+                    font-size: 20px;
+                    font-weight: bolder;
+                    color: rgba(255, 255, 255, 0.931);
+                }
+                .user_info{
+                    width: 100%;
+                    height: 40px;
+                    display: flex;
+                    gap: 30px;
+                    
+                    input{
+                        display: flex;
+                        align-items: center;
+                        padding: 0 15px;
+                        width: 50%;
+                        height: 100%;
+                        background: rgba(255, 255, 255, 0.824);
+                        border-radius: 8px;
+                        font-size: 13px;
+                        border: none;
+                        outline: none;
+                    }
+                }
+                .subject{
+                    width: 100%;
+                    height: 40px;
+                    
+                    input{
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(255, 255, 255, 0.824);
+                        border-radius: 8px;
+                        padding: 0 15px;
+                        font-size: 13px;
+                        border: none;
+                        outline: none;
+                    }
+                }
+                .desc{
+                    width: 100%;
+                    height: 170px;
+                    
+                    textarea{
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(255, 255, 255, 0.824);
+                        border-radius: 8px;
+                        align-items: start;
+                        padding: 10px 13px;
+                        font-size: 13px;
+                        border: none;
+                        outline: none;
+                        resize: none;
+                    }
+                }
+                .btnsend{
+                    background: rgb(1, 39, 47);
+                    color: rgba(255, 255, 255, 0.837);
+                    width: fit-content;
+                    padding: 7px 13px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: transform .25s ease;
+                    
+                    &:hover{
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+        
         .slogan{
             padding: 50px 120px;
             margin-top: 30px;
@@ -283,6 +454,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            
             p{
                 font-size: 23px;
                 color: rgb(2, 56, 68);
@@ -297,8 +469,587 @@
     }
 }
 
-/* ===== Animations & Interactions for Accueil ===== */
-/* Hero entrance */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+// Tablet (max-width: 1024px)
+@media (max-width: 1142px) {
+    .container {
+        .bg {
+            .center {
+                padding: 0 60px;
+                padding-top: 70px;
+                
+                p {
+                    font-size: 24px;
+                }
+                h1 {
+                    font-size: 36px;
+                    width: 500px;
+                }
+                .contact {
+                    gap: 60px;
+                    
+                    .appel, .mail {
+                        gap: 15px;
+                        
+                        .iconCall, .iconMail {
+                            font-size: 45px;
+                        }
+                        .txt {
+                            p {
+                                font-size: 20px;
+                            }
+                            span {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            .bgHero .saryHero {
+                width: 500px;
+            }
+        }
+        
+        .content {
+            .about {
+                padding: 60px 60px 40px 60px;
+                
+                .aboutContent {
+                    gap: 40px;
+                    
+                    .sary {
+                        width: 450px;
+                        min-width: 450px;
+                        height: 450px;
+                    }
+                    .aboutTxt {
+                        height: 450px;
+                        
+                        .titre {
+                            .title {
+                                font-size: 22px;
+                            }
+                            h3 {
+                                font-size: 32px;
+                            }
+                        }
+                        span {
+                            font-size: 15px;
+                        }
+                        .cadres {
+                            height: 120px;
+                        }
+                    }
+                }
+                
+                .about_call {
+                    gap: 30px;
+                    
+                    .call {
+                        .callI {
+                            width: 70px;
+                            height: 70px;
+                        }
+                        .number {
+                            width: 380px;
+                            height: 70px;
+                            
+                            p {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    .btn_read {
+                        width: 180px;
+                        height: 70px;
+                    }
+                }
+            }
+            
+            .services {
+                padding: 40px 60px;
+                
+                .titre {
+                    .title {
+                        font-size: 20px;
+                    }
+                    h3 {
+                        font-size: 30px;
+                    }
+                }
+                .contentS {
+                    height: 450px;
+                    margin-top: 60px;
+                }
+            }
+            
+            .contactSection {
+                padding: 40px 60px;
+                
+                .contact_detail {
+                    height: 450px;
+                    padding: 25px;
+                    
+                    h3 {
+                        font-size: 20px;
+                    }
+                    .block_contact .bl .block {
+                        height: 80px;
+                    }
+                }
+                .cotact_from {
+                    height: 450px;
+                    padding: 25px;
+                    
+                    h3 {
+                        font-size: 18px;
+                    }
+                    .desc {
+                        height: 150px;
+                    }
+                }
+            }
+            
+            .slogan {
+                padding: 40px 60px;
+                
+                p {
+                    font-size: 20px;
+                }
+                span {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:999px) {
+    .container{
+        .about{
+            .aboutContent{
+                display: flex;
+                flex-direction: column;
+                .sary{
+                    width: 100% !important;
+                    min-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:905px) {
+    .container{
+        .bg{
+            .center{
+                backdrop-filter: blur(2px);
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.823), rgba(0, 0, 0, 0.063));
+                p{
+                    color: rgba(255, 255, 255, 0.753);
+                }
+                h1{
+                    color: rgba(255, 255, 255, 0.708);
+                }
+                .contact{
+                    .appel, .mail{
+                        .iconCall, .iconMail{
+                            color: rgba(255, 255, 255, 0.57);
+                        }
+                        .txt{
+                            p{
+                                color: rgb(255, 255, 255);
+                            }
+                            span{
+                                color: rgb(160, 160, 168);
+                            }
+                        }
+                    }
+                }
+            }
+            .saryHero{
+                width: 100% !important;
+                position: absolute;
+                z-index: 3;
+            }
+        }
+    }
+}
+
+// Mobile Large (max-width: 768px)
+@media (max-width: 768px) {
+    .container {
+        .bg {
+            height: 100vh;
+            
+            .left {
+                width: 40%;
+            }
+            .right {
+                width: 35%;
+            }
+            
+            .center {
+                padding: 0 30px;
+                padding-top: 100px;
+                width: 100% !important;
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.627), rgba(0, 0, 0, 0));
+                p {
+                    font-size: 23px;
+                }
+                h1 {
+                    font-size: 32px;
+                    width: 100%;
+                    max-width: 500px;
+                }
+                .contact {
+                    flex-direction: column;
+                    gap: 25px;
+                    align-items: flex-start;
+                    margin-top: 30px;
+                    
+                    .appel, .mail {
+                        gap: 12px;
+                        
+                        .iconCall, .iconMail {
+                            font-size: 40px;
+                            padding: 6px;
+                        }
+                        .txt {
+                            p {
+                                font-size: 18px;
+                            }
+                            span {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .bgHero {
+                .saryBg {
+                    width: 100%;
+                }
+                .saryHero {
+                    //display: none;
+                }
+            }
+        }
+        
+        .content {
+            .about {
+                padding: 50px 30px 30px 30px;
+                
+                .aboutContent {
+                    flex-direction: column;
+                    gap: 30px;
+                    
+                    .sary {
+                        width: 100%;
+                        min-width: 100%;
+                        height: 400px;
+                    }
+                    .aboutTxt {
+                        height: auto;
+                        gap: 20px;
+                        
+                        .titre {
+                            .title {
+                                font-size: 20px;
+                            }
+                            h3 {
+                                font-size: 26px;
+                            }
+                        }
+                        span {
+                            font-size: 14px;
+                            line-height: 1.6;
+                        }
+                        .cadres {
+                            flex-direction: column;
+                            height: auto;
+                            
+                            .cadre {
+                                width: 100%;
+                                height: 100px;
+                            }
+                        }
+                    }
+                }
+                
+                .about_call {
+                    flex-direction: column;
+                    gap: 20px;
+                    
+                    .call {
+                        width: 100%;
+                        
+                        .callI {
+                            width: 60px;
+                            height: 60px;
+                        }
+                        .number {
+                            width: 100%;
+                            height: 60px;
+                            
+                            p {
+                                font-size: 16px;
+                            }
+                            span {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                    .btn_read {
+                        width: 100%;
+                        height: 60px;
+                    }
+                }
+            }
+            
+            .services {
+                padding: 40px 30px;
+                
+                .titre {
+                    .title {
+                        font-size: 18px;
+                    }
+                    h3 {
+                        font-size: 24px;
+                    }
+                }
+                .contentS {
+                    height: auto;
+                    margin-top: 40px;
+                    
+                    .cadreS {
+                        flex-direction: column;
+                        height: auto;
+                        
+                        .cadre {
+                            width: 100%;
+                            min-height: 200px;
+                        }
+                    }
+                }
+            }
+            
+            .contactSection {
+                padding: 40px 30px;
+                flex-direction: column;
+                
+                .contact_detail {
+                    width: 100%;
+                    height: auto;
+                    gap: 20px;
+                    padding: 0;
+                    
+                    h3 {
+                        font-size: 18px;
+                    }
+                }
+                .cotact_from {
+                    width: 100%;
+                    height: auto;
+                    padding: 25px;
+                    gap: 20px;
+                    
+                    .user_info {
+                        flex-direction: column;
+                        height: auto;
+                        gap: 15px;
+                        
+                        input {
+                            width: 100%;
+                            height: 45px;
+                        }
+                    }
+                    .subject input {
+                        height: 45px;
+                    }
+                    .desc {
+                        height: 130px;
+                    }
+                    .btnsend {
+                        width: 100%;
+                        text-align: center;
+                        padding: 12px;
+                    }
+                }
+            }
+            
+            .slogan {
+                padding: 40px 30px;
+                
+                p {
+                    font-size: 18px;
+                }
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+// Mobile Small (max-width: 480px)
+@media (max-width: 480px) {
+    .container {
+        .bg {
+            .left {
+                width: 45%;
+            }
+            .right {
+                width: 40%;
+            }
+            
+            .center {
+                padding: 0 20px;
+                padding-top: 90px;
+                
+                p {
+                    font-size: 18px;
+                }
+                h1 {
+                    font-size: 24px;
+                }
+                .contact {
+                    .appel, .mail {
+                        .iconCall, .iconMail {
+                            font-size: 35px;
+                        }
+                        .txt {
+                            p {
+                                font-size: 16px;
+                            }
+                            span {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        .content {
+            .about {
+                padding: 40px 20px 20px 20px;
+                
+                .aboutContent {
+                    .sary {
+                        height: 300px;
+                    }
+                    .aboutTxt {
+                        .titre {
+                            .title {
+                                font-size: 18px;
+                            }
+                            h3 {
+                                font-size: 22px;
+                            }
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                
+                .about_call {
+                    .call {
+                        .callI {
+                            width: 50px;
+                            height: 50px;
+                            padding: 10px;
+                        }
+                        .number {
+                            height: 50px;
+                            padding: 0 15px;
+                            
+                            p {
+                                font-size: 14px;
+                            }
+                            span {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .btn_read {
+                        height: 50px;
+                    }
+                }
+            }
+            
+            .services {
+                padding: 30px 20px;
+                
+                .titre {
+                    .title {
+                        font-size: 16px;
+                    }
+                    h3 {
+                        font-size: 20px;
+                    }
+                }
+            }
+            
+            .contactSection {
+                padding: 30px 20px;
+                
+                .contact_detail {
+                    h3 {
+                        font-size: 16px;
+                    }
+                    .block_contact .bl {
+                        flex-direction: column;
+                        gap: 12px;
+                        
+                        .block {
+                            width: 100%;
+                            height: 70px;
+                        }
+                    }
+                }
+                .cotact_from {
+                    padding: 20px;
+                    
+                    h3 {
+                        font-size: 16px;
+                    }
+                    .user_info input {
+                        height: 40px;
+                        font-size: 12px;
+                    }
+                    .subject input {
+                        height: 40px;
+                        font-size: 12px;
+                    }
+                    .desc {
+                        height: 120px;
+                        
+                        textarea {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+            
+            .slogan {
+                padding: 30px 20px;
+                
+                p {
+                    font-size: 16px;
+                }
+                span {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+/* ===== Animations & Interactions ===== */
 .container .bg .left{
   animation: slideInLeft 1000ms ease-out 170ms both;
 }
@@ -317,8 +1068,6 @@
   opacity: 0;
   animation: fadeUp 700ms ease 600ms forwards;
 }
-
-/* About section entrance */
 .container .content .about .aboutContent .sary{
   opacity: 0;
   animation: fadeIn 900ms ease 200ms forwards;
@@ -337,8 +1086,6 @@
   transform: translateY(8px);
   animation: fadeUp 700ms ease 650ms forwards;
 }
-
-/* Services hover cards */
 .container .content .services .contentS .cadre{
   transition: transform .3s ease, box-shadow .3s ease;
 }
@@ -346,8 +1093,6 @@
   transform: translateY(-8px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
-
-/* Buttons and icons hover */
 .container .content .about .about_call .btn_read p{
   transition: transform .25s ease, box-shadow .25s ease;
 }
@@ -365,13 +1110,10 @@
   box-shadow: 0 8px 24px rgba(17,95,190,0.25);
 }
 
-/* Keyframes */
 @keyframes aniSaryHero {
     from{ opacity: 40%; }
     to{opacity: 100%;}
 }
-
-
 @keyframes slideInLeft{
   from{ opacity: 0; transform: translateX(-60px); }
   to{ opacity: 60%; transform: translateX(0); }
@@ -392,5 +1134,3 @@
   from{ opacity: 0; transform: scale(0.96); }
   to{ opacity: 1; transform: scale(1); }
 }
-
-
