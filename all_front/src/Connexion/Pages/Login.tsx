@@ -1,10 +1,34 @@
 import React, { useState } from "react";
 import "../Assets/Login.scss";
-import { Link } from "react-router-dom";
-
-// const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const success = await login(username, password);
+      if (success) {
+        navigate("/SpaceUser");
+      } else {
+        setError("Identifiants incorrects");
+      }
+    } catch (err) {
+      setError("Erreur de connexion");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="login-container fade-in">
@@ -20,12 +44,12 @@ const Login = () => {
       <div className="right-panel slide-right">
         <h2 className="title">Se connecter</h2>
 
-        <form  className="login-form">
-          <label>Email ou numéro de téléphone</label>
+        <form onSubmit={handleSubmit} className="login-form">
+          <label>Nom d'utilisateur</label>
           <input
-            type="email"
-            
-            
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
 
@@ -33,16 +57,17 @@ const Login = () => {
           <div className="password-input">
             <input
               type="password"
-             
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <span className="eye">👁</span>
           </div>
 
-         
+          {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
 
-          <button type="submit" className="login-btn" >
-            Se connecter
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? "Connexion..." : "Se connecter"}
           </button>
 
           <div className="options">
@@ -60,7 +85,7 @@ const Login = () => {
 
           <p className="signup-text">
             Vous n'avez pas encore du compte?<br />
-            <a href="/connect/register" className="signup-btn">S'inscrire</a>
+            <Link to="/connect/register" className="signup-btn">S'inscrire</Link>
           </p>
         </form>
       </div>

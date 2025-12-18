@@ -6,9 +6,14 @@ import {
 import { MdSettings } from 'react-icons/md'
 import '../assets/Sidebar.scss'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 
 const Sidebar: React.FC = () => {
-  // const { logout } = useAuth();
+  const { logout } = useAuth()
+
+  const handleLogout = async () => {
+    await logout()
+  }
 
   return (
     <div className='sidebar'>
@@ -81,7 +86,7 @@ const Sidebar: React.FC = () => {
 
         <div
           className="logout"
-          // onClick={logout}
+          onClick={handleLogout}
         >
           <BiLogOut />
         </div>

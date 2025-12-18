@@ -4,11 +4,11 @@ import { MdDarkMode, MdDashboard, MdIntegrationInstructions, MdSettings, MdWork 
 import Photo from '../assets/user.png'
 import '../assets/HeaderStyle.scss'
 import { CgOptions } from 'react-icons/cg'
-// import { useAuth } from '../../context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 
 const Header: React.FC = () => {
-  // const { user } = useAuth();
-  // const username = user ? user.username : "Utilisateur";
+  const { user } = useAuth();
+  const username = user ? user.username : "Utilisateur";
 
   return (
     <div className='Header'>
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
           <div className="photo">
             <img src={Photo} alt="" />
           </div>
-          <p className="name">Rakoto</p>
+          <p className="name">{username}</p>
         </div>
       </div>
     </div>

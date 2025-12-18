@@ -1,23 +1,35 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import '../Assets/Register.scss'
 
 const Register = () => {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { register } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Ajoute l'utilisateur en attente de validation
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    if (users.find((u: any) => u.email === email)) {
-      alert('Cet email existe déjà');
-      return;
+    setError('');
+    setLoading(true);
+
+    try {
+      const success = await register(username, email, password);
+      if (success) {
+        alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+        navigate('/connect/');
+      } else {
+        setError('Erreur lors de l\'inscription');
+      }
+    } catch (err) {
+      setError('Erreur lors de l\'inscription');
+    } finally {
+      setLoading(false);
     }
-    users.push({ name, email, password, status: 'pending' });
-    localStorage.setItem('users', JSON.stringify(users));
-    alert('Inscription réussie ! .');
-    window.location.href = '/login';
   };
 
  return (
@@ -33,35 +45,37 @@ const Register = () => {
         <h2 className="title">S'inscrire</h2>
 
         <form onSubmit={handleSubmit} className="register-form">
-          <label>Nom de famille</label>
-          <input type="text" name="" id="" 
-          //placeholder='nom de famille...' required
+          <label>Nom d'utilisateur</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
           />
 
-          <label>Prenom</label>
-          <input type="text" 
-          //placeholder='votre nom....' required
-          />
-
-          <label>Email ou numéro de téléphone</label>
+          <label>Email</label>
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
-           // placeholder='email ou téléphone.....'
           />
 
           <label>Mot de passe</label>
           <div className="password-input">
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
-              //placeholder='créer votre mot de passe......'
             />
             <span className="eye">👁</span>
           </div>
 
-          <button type="submit" className="register-btn">
-            S'inscrire
+          {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
+
+          <button type="submit" className="register-btn" disabled={loading}>
+            {loading ? "Inscription..." : "S'inscrire"}
           </button>
 
           {/* <div className="options">
@@ -79,7 +93,7 @@ const Register = () => {
 
           <p className="signup-text">
             Vous avez déjà un compte?<br />
-            <a href="/connect/" className="signup-btn">Se connecter</a>
+            <Link to="/connect/" className="signup-btn">Se connecter</Link>
           </p>
         </form>
       </div>
