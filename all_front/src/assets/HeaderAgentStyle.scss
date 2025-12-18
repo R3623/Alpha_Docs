@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.headerAgent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: auto;
+    height: 45px; 
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(1, 28, 36, 0.13);
+    .bars{
+        width: 18px;
+        height: 18px;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .title{
+        font-size: 15.5px;
+        color: rgb(1, 28, 36);
+        margin: 10px;
+        width: 12%;
+    }
+    .search{
+        width: 55%;
+        padding: 3px;
+        .srch{
+            width: 100%;
+            height: 31px;
+            border-radius: 20px;
+            padding: 0 20px;
+            outline: none;
+            background: rgba(96, 132, 143, 0.034);
+            outline: none;
+            border: 1px solid rgba(1, 28, 36, 0.247);
+            color: #fff;
+            &::placeholder{
+                color: rgba(1, 28, 36, 0.568);
+                font-style: italic;
+                font-size: 13px;
+            }
+        }
+    }
+    .iconNotifMsg{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 70px;
+        height: fit-content;
+        .ntmsg{
+        width: 23px;
+        height: 23px;
+        border: 1px solid rgba(1, 28, 36, 0.568);
+        border-radius: 5px;
+        padding: 3px;
+        cursor: pointer;
+        .notif, .msg{
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.623));
+        }
+    }
+    }
+    .user{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin: 10px;
+        min-width: 10%;
+        width: fit-content;
+        max-width: 15%;
+
+        .uti{
+            border: 1px solid rgba(1, 28, 36, 0.568);
+            padding: 1px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            .user-img{
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            margin-right: 10px;
+            cursor: pointer;
+            }
+        }
+        .user-name{
+            color: rgb(1, 28, 36);
+            font-size: 13px;
+        }
+    }
+}

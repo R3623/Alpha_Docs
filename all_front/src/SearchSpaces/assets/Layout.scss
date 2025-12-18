@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+}
+.layout {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    .layoutContent{
+        display: flex;
+        position: relative;
+        main{
+            width: 100%;
+            height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+        }
+    }
+}
+
+@media (max-width: 535px) {
+    .layout{
+        .layoutContent{
+
+            .sdbr{
+                display: none;
+            }
+            main{
+                position: relative;
+                .outl{
+                    width: 100%;
+                    border-top-left-radius: 30px;
+                    border-top-right-radius: 30px;
+                    background: #ededed;
+                    position: absolute;
+                    z-index: 1;
+                    margin-top: -30px;
+                }
+            }
+        }
+    }
+}

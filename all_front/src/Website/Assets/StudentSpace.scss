@@ -1,0 +1,305 @@
+@import 'variables';
+
+.StudentSpace {
+  background-color: $secondary-color;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+
+  .heroStuSpace {
+    .bg{
+        overflow: hidden;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        height: 70vh;
+        // background: #000;
+        //background: rgb(4, 55, 65) ;
+        position: relative;
+        .left{
+            width: 35%;
+            opacity: 50%;
+            height: 100%;
+            background: url(./shape-02.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+        .center{
+            color: rgb(66, 93, 114);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 120px;
+            padding-top: 70px;
+            p{
+                font-size: 30px;
+                font-family: cursive;
+                padding-bottom: 10px;
+                color: rgb(52, 99, 140);
+            }
+            h1{
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                width: 600px;
+                font-size: 43px;
+                color: rgb(25, 51, 72);
+            }
+            .contact{
+                display: flex;
+                align-items: center;
+                gap: 100px;
+                margin-top: 40px;
+                .appel, .mail{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    .iconCall, .iconMail{
+                        font-size: 55px;
+                        border: 1px solid rgb(0, 81, 179);
+                        padding: 8px;
+                        border-radius: 3px;
+                        color: rgb(17, 95, 190);
+                    }
+                    .txt{
+                        line-height: 15px;
+                        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                        p{
+                            font-size: 23px;
+                        }
+                        span{
+                            color: rgba(10, 89, 105, 0.65);
+                            font-size: 15px;
+                        }
+                    }
+              
+                }
+            }
+        }
+        .bgHero{
+            display: flex;
+            height: calc(100% - 90px);
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            bottom: 0;
+            .saryBg{
+                width: 60%;
+                height: 100%;
+                background: url(../Assets/project-3.jpg);
+                opacity: 10%;
+                left: 0;
+                bottom: 0;
+            }
+            .saryHero{
+                height: 100%;
+                width: 40%;
+                //background: url(../../assets/images/video/video.jpg);
+                //opacity: 20%;
+                background: url(../Assets/A\ woman\ is\ working\ on\ a\ laptop\ with\ a\ woman\ on\ the\ screen\ _\ Premium\ AI-generated\ image.jpeg);
+                opacity: 40%;
+                width: 600px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                right: 0;
+                bottom: 0;
+                animation: aniSaryHero 700ms ease 600ms forwards;
+            }
+        }
+        .right{
+            // opacity: 100%;
+            width: 28%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 5;
+            background: url(./shape-01.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+    }
+  }
+
+  .content-container{
+    padding-bottom: 50px;
+    .filter{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px 0;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeUp 600ms ease 250ms forwards;
+      .filter_class{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        p{
+          background: white;
+          padding: 5px 20px;
+          box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.164);
+          border-radius: 8px;
+        }
+        .active{
+          background: #022532;
+          color: white;
+        }
+      }
+      .filter_date{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        h3{
+          background: white;
+          padding: 5px 20px;
+          box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.164);
+          border-radius: 8px;
+        }
+        .date{
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          input{
+            border: 1px solid rgba(0, 0, 0, 0.294);
+            padding: 4px 10px;
+            font-size: 13px;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+    .pub{
+      display: flex; 
+      flex-direction: column;
+      gap: 40px;
+      padding:10px 
+       50px;
+       animation: fadeUp 600ms ease 250ms forwards;
+      .pub_L1, .pub_L2, .pub_L3, .pub_M1, .pub_M2{
+        .title{
+          font-weight: bolder;
+          font-size: 17px;
+          padding-left: 10px;
+          margin-bottom: 15px;
+          border-bottom: 1px solid rgba(0,0,0,0.12);
+        }
+        .pub_content{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          .a, .b, .c, .d{
+            width: 24%;
+            height: 300px;
+            background: white;
+            box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.164);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.heroStuSpace .bg .left{
+  animation: slideInLeft 1000ms ease-out 170ms both;
+}
+.heroStuSpace .bg .right{
+  animation: slideInRight 1300ms ease-out 200ms both;
+}
+.heroStuSpace .bg .center p{
+  opacity: 0;
+  animation: fadeUp 600ms ease 250ms forwards;
+}
+.heroStuSpace .bg .center h1{
+  opacity: 0;
+  animation: fadeUp 700ms ease 400ms forwards;
+}
+.heroStuSpace .bg .center .contact{
+  opacity: 0;
+  animation: fadeUp 700ms ease 600ms forwards;
+}
+
+/* About section entrance */
+.heroStuSpace .content .about .aboutContent .sary{
+  opacity: 0;
+  animation: fadeIn 900ms ease 200ms forwards;
+}
+.heroStuSpace .content .about .aboutContent .aboutTxt{
+  opacity: 0;
+  animation: fadeUp 900ms ease 350ms forwards;
+}
+.heroStuSpace .content .about .about_call .call{
+  opacity: 0;
+  transform: scale(0.96);
+  animation: popIn 600ms ease 450ms forwards;
+}
+.heroStuSpace .content .about .about_call .btn_read{
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 700ms ease 650ms forwards;
+}
+
+/* Services hover cards */
+.heroStuSpace .content .services .contentS .cadre{
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.container .content .services .contentS .cadre:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* Buttons and icons hover */
+.container .content .about .about_call .btn_read p{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.container .content .about .about_call .btn_read:hover p{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+.container .bg .center .contact .appel .iconCall,
+.container .bg .center .contact .mail .iconMail{
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.container .bg .center .contact .appel:hover .iconCall,
+.container .bg .center .contact .mail:hover .iconMail{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(17,95,190,0.25);
+}
+
+/* Keyframes */
+@keyframes aniSaryHero {
+    from{ opacity: 40%; }
+    to{opacity: 100%;}
+}
+
+
+@keyframes slideInLeft{
+  from{ opacity: 0; transform: translateX(-60px); }
+  to{ opacity: 60%; transform: translateX(0); }
+}
+@keyframes slideInRight{
+  from{ opacity: 0; transform: translateX(60px); }
+  to{ opacity: 60%; transform: translateX(0); }
+}
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(16px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+@keyframes popIn{
+  from{ opacity: 0; transform: scale(0.96); }
+  to{ opacity: 1; transform: scale(1); }
+}
+
+

@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.PlainteDetails{
+    .header{
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .back-button{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 135px;
+            font-size: 15px;
+        }
+        h2{
+            font-size: 15px;
+        }
+    }
+    .plainte-content{
+        .plainte-header{
+            
+            .plainte-info{
+                
+                padding: 10px;
+                border-bottom: 1px solid #0000001f;
+                background: #00000009;
+                p{
+                    font-size: 13px;
+                    width: fit-content;
+                }
+            }
+        }
+        .section-info{
+            border-bottom: 1px solid #0000001f;
+            padding: 5px 10px;
+            h3{
+                font-size: 14px;
+                font-weight: bolder;
+            }
+            .info-plaignant{
+                display: flex;
+                padding-top: 5px;
+                justify-content: space-between;
+                .div{
+                    .info{
+                        font-size: 13px;
+                        label{
+                        padding-right: 10px;
+                        font-weight: bold;
+                        color: rgba(0, 0, 0, 0.801);
+                    }
+                    }
+                }
+            }
+        }
+        .information{
+            .title-info{
+                font-size: 14px;
+                padding: 5px 10px;
+                font-weight: bolder;
+                border-bottom: 1px solid #0000001f;
+                background: #00000009;
+            }
+            .info-content{
+                display: flex;
+                .info-plainte{
+                    min-width: 350px;
+                    border-right: 1px solid #0000001f;
+                    font-size: 13px;
+                    label{
+                        padding-right: 10px;
+                        font-weight: bold;
+                        color: rgba(0, 0, 0, 0.801);
+                    }
+                }
+            }
+        }
+    }
+}

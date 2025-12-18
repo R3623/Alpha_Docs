@@ -1,0 +1,396 @@
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    min-width: 100% !important;
+    min-height: 100vh;
+    position: relative;
+    .bg{
+        overflow: hidden;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        height: 95vh;
+        // background: #000;
+        //background: rgb(4, 55, 65) ;
+        position: relative;
+        .left{
+            width: 35%;
+            opacity: 50%;
+            height: 100%;
+            background: url(./shape-02.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+        .center{
+            color: rgb(66, 93, 114);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 120px;
+            padding-top: 70px;
+            p{
+                font-size: 30px;
+                font-family: cursive;
+                padding-bottom: 10px;
+                color: rgb(52, 99, 140);
+            }
+            h1{
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                width: 600px;
+                font-size: 43px;
+                color: rgb(25, 51, 72);
+            }
+            .contact{
+                display: flex;
+                align-items: center;
+                gap: 100px;
+                margin-top: 40px;
+                .appel, .mail{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    .iconCall, .iconMail{
+                        font-size: 55px;
+                        border: 1px solid rgb(0, 81, 179);
+                        padding: 8px;
+                        border-radius: 3px;
+                        color: rgb(17, 95, 190);
+                    }
+                    .txt{
+                        line-height: 15px;
+                        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                        p{
+                            font-size: 23px;
+                        }
+                        span{
+                            color: rgba(10, 89, 105, 0.65);
+                            font-size: 15px;
+                        }
+                    }
+              
+                }
+            }
+        }
+        .bgHero{
+            display: flex;
+            height: calc(100% - 90px);
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            bottom: 0;
+            .saryBg{
+                width: 60%;
+                height: 100%;
+                background: url(../Assets/project-3.jpg);
+                opacity: 10%;
+                left: 0;
+                bottom: 0;
+            }
+            .saryHero{
+                height: 100%;
+                width: 40%;
+                //background: url(../../assets/images/video/video.jpg);
+                //opacity: 20%;
+                background: url(../Assets/pexels-hillaryfox-1595391.jpg);
+                opacity: 40%;
+                width: 600px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                right: 0;
+                bottom: 0;
+                animation: aniSaryHero 700ms ease 600ms forwards;
+            }
+        }
+        .right{
+            // opacity: 100%;
+            width: 28%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 5;
+            background: url(./shape-01.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+    }
+    .content{
+        width: 100%;
+        min-height: 100vh;
+        background: #e1e0e0;
+        padding-bottom: 50px;
+        .about{
+            padding: 80px 120px 50px 120px;
+            .aboutContent{
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                .sary{
+                    width: 600px;
+                    min-width: 600px;
+                    height: 500px;
+                    //background: url(../Assets/about.jpg);
+                    background: url(../Assets/pexels-olly-3762800.jpg);
+                    background-size: cover;
+                    background-position: center;
+                    border: 1px solid rgba(164, 177, 188, 0.283);
+                }
+                .aboutTxt{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 100%;
+                    height: 500px;
+                    .titre{
+                        .title{
+                            font-size: 25px;
+                            font-weight: bolder;
+                            color: rgba(3, 51, 55, 0.804);
+                        }
+                        h3{
+                            font-size: 37px;
+                            color: rgba(0, 0, 0, 0.82);
+                        }
+                    }
+                    span{
+                        font-size: 17px;
+                    }
+                    .cadres{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 20px;
+                        width: 100%;
+                        height: 180px;
+                        .cadre{
+                            width: 49%;
+                            height: 100%;
+                            background: rgba(164, 177, 188, 0.65);
+                        }
+                    }
+                }
+            }
+            .about_call{
+                display: flex;
+                margin-top: 20px;
+                align-items: center;
+                gap: 50px;
+                .call{
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    .callI{
+                        width: 80px;
+                        height: 80px;
+                        background: rgb(2, 56, 68);
+                        padding: 15px;
+                        color: rgba(191, 198, 198, 0.829);
+                    }
+                    .number{
+                        background: rgba(164, 177, 188, 0.65);
+                        width: 515px;
+                        height: 80px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        padding: 0 20px;
+                        p{
+                            font-size: 20px;
+                        }
+                        span{
+                            color: rgba(0, 0, 0, 0.779);
+                        }
+                    }
+                }
+                .btn_read{
+                    width: 200px;
+                    height: 80px;
+                    border: 2px solid rgb(2, 56, 68);
+                    padding: 2px;
+                    p{
+                        width: 100%;
+                        height: 100%;
+                        background: rgb(2, 56, 68);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: rgb(164, 177, 188);
+                    }
+                }
+            }
+        }
+        .services{
+            width: 100%;
+            padding: 50px 120px;
+            .titre{
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                .title{
+                    font-size: 23px;
+                    font-weight: bolder;
+                    color: rgb(2, 56, 68);
+                }
+                h3{
+                    font-size: 35px;
+                    color: rgba(0, 0, 0, 0.82);
+                }
+            }
+            .contentS{
+                background: rgba(164, 177, 188, 0.65);
+                width: 100%;
+                height: 500px;
+                margin-top: 80px;
+                display: flex;
+                flex-direction: column;
+                gap: 1px;
+                .cadreS{
+                    width: 100%;
+                    height: 50%;
+                    display: flex;
+                    align-items: center;
+                    gap: 1px;
+                    .cadre{
+                        background: #e1e0e0;
+                        width: 50%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .slogan{
+            padding: 50px 120px;
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            p{
+                font-size: 23px;
+                color: rgb(2, 56, 68);
+                font-weight: bolder;
+            }
+            span{
+                font-size: 16px;
+                font-style: italic;
+                font-family: 'Courier New', Courier, monospace;
+            }
+        }
+    }
+}
+
+/* ===== Animations & Interactions for Accueil ===== */
+/* Hero entrance */
+.container .bg .left{
+  animation: slideInLeft 1000ms ease-out 170ms both;
+}
+.container .bg .right{
+  animation: slideInRight 1300ms ease-out 200ms both;
+}
+.container .bg .center p{
+  opacity: 0;
+  animation: fadeUp 600ms ease 250ms forwards;
+}
+.container .bg .center h1{
+  opacity: 0;
+  animation: fadeUp 700ms ease 400ms forwards;
+}
+.container .bg .center .contact{
+  opacity: 0;
+  animation: fadeUp 700ms ease 600ms forwards;
+}
+
+/* About section entrance */
+.container .content .about .aboutContent .sary{
+  opacity: 0;
+  animation: fadeIn 900ms ease 200ms forwards;
+}
+.container .content .about .aboutContent .aboutTxt{
+  opacity: 0;
+  animation: fadeUp 900ms ease 350ms forwards;
+}
+.container .content .about .about_call .call{
+  opacity: 0;
+  transform: scale(0.96);
+  animation: popIn 600ms ease 450ms forwards;
+}
+.container .content .about .about_call .btn_read{
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 700ms ease 650ms forwards;
+}
+
+/* Services hover cards */
+.container .content .services .contentS .cadre{
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.container .content .services .contentS .cadre:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* Buttons and icons hover */
+.container .content .about .about_call .btn_read p{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.container .content .about .about_call .btn_read:hover p{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+.container .bg .center .contact .appel .iconCall,
+.container .bg .center .contact .mail .iconMail{
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.container .bg .center .contact .appel:hover .iconCall,
+.container .bg .center .contact .mail:hover .iconMail{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(17,95,190,0.25);
+}
+
+/* Keyframes */
+@keyframes aniSaryHero {
+    from{ opacity: 40%; }
+    to{opacity: 100%;}
+}
+
+
+@keyframes slideInLeft{
+  from{ opacity: 0; transform: translateX(-60px); }
+  to{ opacity: 60%; transform: translateX(0); }
+}
+@keyframes slideInRight{
+  from{ opacity: 0; transform: translateX(60px); }
+  to{ opacity: 60%; transform: translateX(0); }
+}
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(16px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+@keyframes popIn{
+  from{ opacity: 0; transform: scale(0.96); }
+  to{ opacity: 1; transform: scale(1); }
+}
+
+

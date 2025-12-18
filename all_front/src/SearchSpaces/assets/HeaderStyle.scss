@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 50px);
+    height: fit-content;
+    padding: 15px 20px;
+    //margin-left: 80px;
+    margin-left: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    .header_navigation{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .selected{
+            font-size: 15px;
+            background: white;
+            padding: 5px  7px;
+            border-radius: 3px;
+            box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.303);
+            display: none;
+        }
+        .tdb, .wrokflow, .int, .search{
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            gap: 5px;
+            color: rgba(2, 23, 39, 0.852);
+            p{
+                font-size: 14px;
+                font-weight: bolder;
+            }
+        }
+        .search{
+            position: relative;
+            //display: flex;
+            display: none;
+            align-items: center;
+            width: 210px;
+            height: 30px;
+            .iconSearch{
+                position: absolute;
+                left: 10px;
+            }
+            input{
+                border: 1px solid rgba(3, 33, 55, 0.852);
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                padding: 0 10px 0 28px;
+                outline: none;
+                font-size: 13px;
+                &::placeholder{
+                    font-size: 11px;
+                }
+            }
+        }
+        .tdb{
+            p{
+                font-weight: bolder;
+                text-decoration: underline;
+            }
+        }
+    }
+    .profil_preference{
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        gap: 15px;
+        .dl{
+           display: none;
+            align-items: center;
+            background: rgb(58, 112, 179);
+            padding: 6px 8px;
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.875);
+            gap: 3px;
+            cursor: pointer; 
+        }
+        .dark_light{
+            display: flex;
+            align-items: center;
+            background: rgba(4, 49, 89, 0.096);
+            padding: 2px 4px;
+            border-radius: 10px;
+            gap: 5px;
+            .light{
+                display: flex;
+                align-items: center;
+                background: rgb(58, 112, 179);
+                padding: 4px 8px 4px 5px;
+                border-radius: 8px;
+                color: rgba(255, 255, 255, 0.875);
+                gap: 3px;
+                cursor: pointer;
+                p{
+                    font-size: 10px;
+                }
+            }
+            .dark{
+                display: flex;
+                align-items: center;
+                padding: 3px 8px 3px 5px;
+                border-radius: 8px;
+                color: rgb(5, 28, 57);
+                cursor: pointer;
+                gap: 3px;
+                p{
+                    font-size: 13px;
+                }
+            }
+        }
+        .notif_params{
+            display: flex;
+            align-items: center;
+            font-size: 19px;
+            gap: 4px;
+            color: rgba(4, 41, 61, 0.9);
+        }
+        .export{
+            display: flex;
+            align-items: center;
+            background: rgba(4, 49, 89, 0.096);
+            padding: 3px 4px 3px 6px;
+            border-radius: 10px;
+            gap: 6px;
+            font-size: 15px;
+            p{
+                font-size: 11px;
+                color: rgba(2, 23, 39, 0.852);
+            }
+            .data{
+                display: flex;
+                align-items: center;
+                background: rgb(58, 112, 179);
+                border-radius: 7px;
+                color: rgba(255, 255, 255, 0.875);
+                gap: 3px;
+                font-size: 23px;
+                padding: 3px;
+            }
+        }
+        .profil{
+            display: flex;
+            align-items: center;
+            background: rgb(2, 59, 97);
+            border-radius: 8px;
+            padding: 4px 8px;
+            gap: 5px;
+            .photo{
+                width: 24px;
+                height: 24px;
+                min-width: 24px;
+                min-height: 24px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    padding: 1px;
+                    background: rgba(255, 255, 255, 0.187);
+                    border: 1px solid rgba(255, 255, 255, 0.582);
+                }
+            }
+            p{
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.648);
+            }
+    }
+    }
+}
+
+@media (max-width: 960px) {
+    .Header{
+        .header_navigation{
+            .selected{
+                display: block;
+            }
+            .wrokflow, .int{
+                display: none;
+            }
+        }
+        .profil_preference{
+            .export{
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .Header{
+        .profil_preference{
+            .dl{
+                display: flex;
+            }
+            .dark_light{
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 535px) {
+    .Header{
+        width: 100%;
+        height: fit-content;
+        padding: 20px 20px 50px 20px;
+        background: linear-gradient(rgb(58, 112, 179), rgb(102, 47, 185));
+        // border-bottom-left-radius: 20px;
+        // border-bottom-right-radius: 20px;
+        .header_navigation{
+            .selected{
+                color: rgb(58, 112, 179);
+                background: rgba(255, 255, 255, 0.883);
+                padding: 4px 5px;
+            }
+            .tdb, .wrokflow, .int{
+                color: rgba(255, 255, 255, 0.819);
+            }
+        }
+        .profil_preference{
+            .dl{
+                // box-shadow: 1px 1px 5px 1px rgba(139, 139, 139, 0.303);
+                border: 1px solid rgba(255, 255, 255, 0.171);
+            }
+            .notif_params{
+                color: rgba(255, 255, 255, 0.819);
+            }
+            .profil{
+                border: 1px solid rgba(255, 255, 255, 0.566);
+            }
+        }
+    }
+}

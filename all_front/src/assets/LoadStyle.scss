@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.load {
+  animation: anim .5s alternate infinite;
+  font-size: 30px;
+  display: inline-block;
+  color: white;
+}
+.span{
+    animation: h 1s alternate infinite;
+}
+
+@keyframes h {
+  0% {
+    color: rgb(87, 54, 4);
+  }
+  50%{
+    color: rgb(2, 71, 83);
+  }
+  100% {
+    color: rgb(66, 2, 50);
+  }
+}
+
+@keyframes anim {
+  0% {
+    transform: rotate(0deg) scale(1);
+    color: rgb(2, 71, 83);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+    color: rgb(66, 2, 50);
+  }
+}

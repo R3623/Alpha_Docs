@@ -1,0 +1,244 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  //background: #f7fbff;
+  background: url(../Assets/login.jpg) rgba(0, 0, 0, 0.111);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* --- Left panel --- */
+.left-panel {
+  width: 55%;
+  height: 100vh;
+  position: relative;
+  //background: #e8f4ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.illustration {
+  width: 80%;
+  max-width: 500px;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 20%;
+  right: 12%;
+  text-align: left;
+
+  h2 {
+    color: #046d8d;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  p {
+    color: #058fa4;
+    font-size: 15px;
+  }
+}
+
+/* --- Right panel --- */
+.right-panel {
+  width: 45%;
+  height: 100vh;
+  //background: white;
+  padding: 60px 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    width: 150px;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #333;
+    padding-left: 15px;
+  }
+
+  input {
+    margin-top: 5px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    width: 300px;
+    font-size: 12px;
+    outline: none;
+  }
+}
+
+.password-input {
+  position: relative;
+
+  .eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+
+/* Buttons */
+.login-btn {
+  margin-top: 15px;
+  padding:10px 12px;
+  background: #057da8;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: #045e7e;
+  }
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+
+  a {
+    font-size: 12px;
+    color: #035b74bb;
+    padding-left: 16px;
+  }
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 15px 0;
+  position: relative;
+
+  span {
+    padding: 0 10px;
+    color: #888;
+    font-size: 12px;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #9bc2cc;
+  }
+
+  &:before { left: 0; }
+  &:after { right: 0; }
+}
+
+/* Social login buttons */
+.social-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+
+  button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  }
+
+  .google { color: #db4437; }
+  .facebook { color: #4267b2; }
+}
+
+/* Sign up */
+.signup-text {
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  font-size: 12px;
+  padding-left: 17px;
+
+  .signup-btn {
+    font-size: 13px;
+    text-decoration: underline;
+    color: #1e90ff;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+/* --- Animations --- */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+.slide-right {
+  animation: slideRight 0.8s ease forwards;
+}
+.slide-left {
+  animation: slideLeft 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideRight {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideLeft {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* --- Responsive --- */
+
+@media (max-width:903px) {
+  .login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .left-panel{
+      display: none;
+    }
+  }
+}

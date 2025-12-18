@@ -1,0 +1,228 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.PlaintesAgentList,
+.HistoriquesPlaintes {
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    .back-button {
+      display: flex;
+      align-items: center;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+      
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+  
+  .content {
+    position: relative;
+    width: 100%;
+  }   
+  
+  .headerContent {
+    h3 {
+      color: #333;
+      font-size: 15px;
+      padding: 5px 10px;
+      border-bottom: 1px solid #00101423;
+    }
+  }
+  
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .filtre {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3px 9px;
+    border-bottom: 1px solid #00101423;
+    .filter {
+      display: flex;
+      gap: 5px;
+      
+      p {
+        padding: 5px 15px;
+        background: #00111823;
+        border: 1px solid #01131b46;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+        color: rgba(1, 23, 29, 0.795);
+        font-size: 13px;
+        
+        &.active {
+          background: #011c2786;
+          color: #fff;
+        }
+        
+        &:hover:not(.active) {
+          background: #e0e0e0;
+        }
+      }
+    }
+    
+    .nbrCatego {
+      display: flex;
+      gap: 5px;
+      
+      p {
+        padding: 5px 15px;
+        background: #00111823;
+        border: 1px solid #01131b46;
+        border-radius: 4px;
+        transition: background 0.3s;
+        color: rgba(1, 23, 29, 0.795);
+        font-size: 13px;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  
+  .filterStatus {
+    display: flex;
+    gap: 5px;
+    top: 0 !important;
+    p {
+      padding: 5px 15px;
+      background: #00111823;
+      border: 1px solid #01131b46;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      color: rgba(1, 23, 29, 0.795);
+      font-size: 13px;
+      &.active {
+         background: #011c2786;
+         color: #fff;
+      }
+      
+      &:hover:not(.active) {
+        background: #e0e0e0;
+      }
+    }
+  }
+  
+  .tableContentTous,
+  .tableContentCategorie,
+  .tableContentEnAttente,
+  .tableContentEncours,
+  .tableContentTraite {
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    .tableHead {
+      display: flex;
+      padding: 4px 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+      font-weight: bold;
+      border-bottom: 1px solid #01131b17;
+      
+      h3 {
+        background: #01172215;
+        font-size: 13px;
+        color: #555;
+        margin: 0;
+        padding: 4px 10px;
+        border-radius: 3px;
+      }
+    }
+    
+    .contenTable {
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+      border-bottom: 1px solid #eeeeee27;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      p {
+        margin: 0;
+        font-size: 12px;
+        color: #333;
+        padding: 3px 10px;
+        background: #3f010105;
+        
+        &.nbr, &.UName, &.catego, &.date, &.faits {
+          display: flex;
+          align-items: center;
+        }
+        
+        &.enAtt {
+          color: #945900;
+          font-weight: bold;
+        }
+        
+        &.enc {
+          color: #0359a0e3;
+          font-weight: bold;
+        }
+        
+        &.traite {
+          color: #08800c;
+          font-weight: bold;
+        }
+        
+        &.action {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          
+          span {
+            cursor: pointer;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+  
+  .status-nouvelle {
+    background-color: #2196f3;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .status-en-cours {
+    background-color: #ff9800;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .status-resolue {
+    background-color: #4caf50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+}

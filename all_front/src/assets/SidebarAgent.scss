@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.sidebarAgent{
+    width: 170px;
+    height: 100vh;
+    background: linear-gradient( 60deg, #001d1d, #010c22, #001d1d);
+    //background: linear-gradient( 60deg,  #001d1d91, #010c228c, #001d1da1);
+    color: white;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 5px 5px 5px;
+    position: relative;
+    .title{
+        width: fit-content;
+        margin: 0 auto;
+        display: flex;
+        align-items: end;
+        padding-right: 20px;
+        .logo{
+            width: 28px;
+            //background: radial-gradient(20px, #ffffffd7, #001d1d3b);
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.623));
+        }
+        h1{
+            text-align: center;
+            color: rgba(255, 255, 255, 0.623);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.623);
+            width: fit-content;
+            height: fit-content;
+            margin-left: 5px;
+            font-size: 20px;
+            span{
+                font-style: italic;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 20px;
+                color: rgba(255, 255, 255, 0.849);
+            }
+        }
+    }
+    .navigations{
+        margin-top: 50px;
+        h4{
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.623);
+            width: 100%;
+            padding: 0 3px;
+            color: rgba(255, 255, 255, 0.623);
+            margin-bottom: 20px;
+        }
+        .nav-item{
+            display: flex;
+            align-items: start;
+            margin-top: 7px;
+            padding: 8px 5px ;
+            color: rgba(255, 255, 255, 0.849);
+            background: #a1a1a102;
+            border-bottom: 1px solid #ffffff09;
+            border-radius: 3px;
+            .icon{
+                margin-right: 10px;
+            }
+            span{
+                font-size: 15px;
+            }
+            .navi{
+                font-size: 12px;
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.719);
+            }
+            .icon-right{
+                margin-left: auto;
+                color: rgba(255, 255, 255, 0.623);
+                font-size: 15px;
+            }
+        }
+        .logout{
+            font-size: 15px;
+            background: #a1a1a111;
+            position: absolute;
+            bottom: 5px;
+            left: 2px;
+            width: 97%;
+            padding: 8px 5px;
+            border: 1px solid rgba(255, 255, 255, 0.171);
+            border-radius: 3px;
+            font-size: 15px;
+            font-weight: normal;
+            letter-spacing: .5px;
+            .lg{
+                background: rgba(255, 255, 255, 0.548);
+                padding: 1px;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  animation: fadeDown 0.3s ease-in-out;
+  margin-top: -5px;
+
+  .navi {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #d6d6d6;
+    text-decoration: none;
+    
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.param-item {
+  cursor: pointer;
+  user-select: none;
+}
+
+.icon-right.rotate {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1px;
+  animation: fadeIn 0.3s ease;
+  border: 1px solid #ffffff09;
+  border-radius: 3px;
+  border-top: none;
+  padding: 15px 0 15px 30px;
+}
+
+.submenu-link {
+  font-size: 13px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.432);
+  text-decoration: none;
+  padding: 2px 0;
+  transition: all 0.2s ease;
+  margin-left: -10px !important;
+  cursor: pointer;
+}
+
+.submenu-link:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
