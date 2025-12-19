@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   BiBell, BiCalendar, BiCalendarEdit, BiCategory, BiChart,
-  BiHelpCircle, BiLogOut, BiMessage, BiSidebar, BiUser
+  BiHelpCircle, BiHistory, BiLogOut, BiMessage, BiSidebar, BiUser
 } from 'react-icons/bi'
 import { MdSettings } from 'react-icons/md'
 import '../assets/Sidebar.scss'
@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
           to="/dashboard/Chart"
           className={({ isActive }) => "navs" + (isActive ? " active" : "")}
         >
-          <BiChart />
+          <BiHistory />
         </NavLink>
 
         <NavLink
@@ -50,23 +50,23 @@ const Sidebar: React.FC = () => {
           <BiBell />
         </div>
 
-        <NavLink
+        {/* <NavLink
           to="/dashboard/Calendar"
           className={({ isActive }) => "navs" + (isActive ? " active" : "")}
         >
           <BiCalendar />
-        </NavLink>
+        </NavLink> */}
 
-        <NavLink
+        {/* <NavLink
           to="/dashboard/Messages"
           className={({ isActive }) => "navs" + (isActive ? " active" : "")}
         >
           <BiMessage />
-        </NavLink>
+        </NavLink> */}
 
-        <div className="navs">
+        {/* <div className="navs">
           <BiCalendarEdit />
-        </div>
+        </div> */}
 
         <NavLink
           to="/dashboard/Settings"

@@ -1,328 +1,371 @@
 import React, { Component } from 'react'
-import Bug from '../assets/logo-removebg-preview.png'
-import Slayers from '../assets/logo.png'
-import Ordi from '../assets/image12.png'
 import '../assets/Accueil.scss'
-import { MdAdd, MdAddCircle, MdClearAll, MdDelete, MdMeetingRoom } from 'react-icons/md'
-import { BiArrowToLeft, BiArrowToRight, BiCalendar, BiCustomize, BiEditAlt, BiShareAlt, BiTime, BiUserCircle } from 'react-icons/bi'
-import { CgSmile, CgSmileMouthOpen } from 'react-icons/cg'
-import { BsBagCheck, BsStars } from 'react-icons/bs'
+import { MdPictureAsPdf, MdImage, MdVideoLibrary, MdVerified } from 'react-icons/md'
+import { BiLoader, BiCheckCircle } from 'react-icons/bi'
+import { BsFileText, BsShieldCheck } from 'react-icons/bs'
+import axios from 'axios'
+import { mockSearchData } from '../data/mockSearch'
 
-export class AccueilDash extends Component {
+interface AccueilDashState {
+  showResult: boolean;
+  inputValue: string;
+  loading: boolean;
+  searchResults: SearchResult | null;
+  summaryText: string;
+  isTyping: boolean;
+}
+
+interface SearchResult {
+  summary: string;
+  sources: Source[];
+  images: MediaItem[];
+  videos: MediaItem[];
+  pdfs: PdfItem[];
+}
+
+interface Source {
+  name: string;
+  url: string;
+  verified: boolean;
+}
+
+interface MediaItem {
+  url: string;
+  title: string;
+  source: string;
+}
+
+interface PdfItem {
+  title: string;
+  url: string;
+  pages: number;
+  source: string;
+}
+
+export class AccueilDash extends Component<{}, AccueilDashState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      showResult: false,
+      inputValue: '',
+      loading: false,
+      searchResults: null,
+      summaryText: '',
+      isTyping: false
+    };
+  }
+
+  handleGenerate = async () => {
+    const { inputValue } = this.state;
+
+    if (!inputValue.trim()) {
+      alert('Veuillez entrer une recherche');
+      return;
+    }
+
+    this.setState({ showResult: true, loading: true });
+
+    if (inputValue.toLowerCase() === 'python' || inputValue.toLowerCase() === 'react') {
+      setTimeout(() => {
+        this.setState({
+          loading: false,
+          searchResults: mockSearchData[inputValue.toLowerCase()]
+        }, () => {
+          setTimeout(() => {
+            this.startTyping();
+          }, 500); 
+        });
+      }, 2000); 
+      return;
+    }
+
+    try {
+      const response = await axios.post('/api/ai-search/', {
+        query: inputValue
+      });
+
+      const searchResults: SearchResult = response.data;
+
+      this.setState({
+        loading: false,
+        searchResults: searchResults
+      });
+
+    } catch (error) {
+      console.error('Erreur lors de la recherche:', error);
+      this.setState({
+        loading: false,
+        searchResults: {
+          summary: 'Une erreur est survenue lors de la recherche. Veuillez réessayer.',
+          sources: [],
+          images: [],
+          videos: [],
+          pdfs: []
+        }
+      });
+    }
+  };
+
+  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ inputValue: e.target.value });
+  };
+
+  handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      this.handleGenerate();
+    }
+  };
+
+  handleDownload = () => {
+    // Simuler le téléchargement
+    setTimeout(() => {
+      if ('Notification' in window && Notification.permission === 'granted') {
+        new Notification('Téléchargement réussi');
+      } else if ('Notification' in window && Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            new Notification('Téléchargement réussi');
+          } else {
+            alert('Téléchargement réussi');
+          }
+        });
+      } else {
+        alert('Téléchargement réussi');
+      }
+    }, 1000); // Simuler un délai de téléchargement
+  };
+
+  startTyping = () => {
+    const fullText = this.state.searchResults?.summary || '';
+    this.setState({ isTyping: true, summaryText: '' });
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < fullText.length) {
+        this.setState(prevState => ({
+          summaryText: prevState.summaryText + fullText[index]
+        }));
+        index++;
+      } else {
+        clearInterval(interval);
+        this.setState({ isTyping: false });
+      }
+    }, 5); // Vitesse de frappe
+  };
+
   render() {
+    const { showResult, inputValue, loading, searchResults, summaryText, isTyping } = this.state;
+
     return (
-      <div className='Accueil'>
-        <div className="header">
-          <div className="wlcm">
-            <h3>Salut, Jb <CgSmile className='smile'/> <CgSmileMouthOpen className='smile'/></h3>
-            <h3>Lorem, ipsum dolor sit amet consectetur adipisicing.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis repellat fuga voluptas quos, totam placeat.</p>
-          </div>
-          <div className="card_header">
-            <div className="add">
-              <p><MdAdd className='add_icon'/></p>
-            </div>
-            <div className="card">
-              <div className="img">
-                <img src={Bug} alt="" />
-              </div>
-              <div className="text">
-                <h4>Lorem ipsum</h4>
-                <p>Lorem ipsum dolor sit am</p>
-              </div>
-            </div>
-            <div className="card">
-              <div className="img">
-                <img src={Slayers} alt="" />
-              </div>
-              <div className="text">
-                <h4>Lorem ipsum</h4>
-                <p>Lorem ipsum dolor sit am</p>
-              </div>
-            </div>
-            <div className="card">
-              <div className="img">
-                <img src={Ordi} alt="" />
-              </div>
-              <div className="text">
-                <h4>Lorem ipsum</h4>
-                <p>Lorem ipsum dolor sit am</p>
-              </div>
+      <div className="app">
+        <aside className="sdb">
+          <div className="brand">
+            <div className="brand-text">
+              <BsShieldCheck style={{ display: 'inline', marginRight: '8px' }} />
+              Recherche Vérifiée
             </div>
           </div>
-        </div>
-        <div className="notif_assignement_agenda">
-          <div className="notif">
-            <div className="title">
-              <h3>Notification</h3>
-              <div className="clear">
-                <MdClearAll />
-                <p>Clear</p>
+
+          <nav className="menu">
+            <ul>
+              <li className="active">Historique de recherche</li>
+              <li>Sources officielles</li>
+              <li>Documents sauvegardés</li>
+              <li>Favoris</li>
+              <li>Paramètres</li>
+            </ul>
+          </nav>
+        </aside>
+        
+        <main className="main">
+          <header className="topbar">
+            <div className="breadcrumb">
+              Recherche / <strong>Documents Officiels</strong>
+            </div>
+            <button className="new-tab">Nouvelle recherche</button>
+          </header>
+
+          <section className="content-wrap">
+            <div className="dashboard-card">
+              <div className={`bla ${showResult ? 'hidden' : ''}`}>
+                <div className="intro">
+                  <span className="badge">
+                    <MdVerified style={{ display: 'inline', marginRight: '4px' }} />
+                    Sources 100% vérifiées
+                  </span>
+                  <h1>Recherche dans les documents officiels</h1>
+                  <p>
+                    Accédez à des informations fiables issues uniquement de documentations officielles.
+                    Notre IA parcourt et vérifie chaque source pour vous garantir une information sans désinformation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="goal-box">
+                <div className="goal-top">
+                  Recherchez dans les documentations officielles - Zéro désinformation
+                </div>
+                <div className="goal-inner">
+                  <input 
+                    placeholder="Ex: React hooks, Python async, Node.js streams..." 
+                    value={inputValue}
+                    onChange={this.handleInputChange}
+                    onKeyPress={this.handleKeyPress}
+                    disabled={loading}
+                  />
+                  <button 
+                    className="generate" 
+                    onClick={this.handleGenerate}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <BiLoader className="spin-icon" /> Recherche...
+                      </>
+                    ) : (
+                      'Rechercher'
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="content">
-              <div className="notify">
-                <div className="shadow">
-                  <div className="content">
-                    <MdDelete />
-                    <BiEditAlt />
-                  </div>
-                </div>
-                <div className="notify_content">
-                  <div className="titre">
-                    <div className="ttr">
-                      <h4>Anniv Yas <span><BsStars /></span></h4>
-                      <p>Anniversaire de Yas | Madagascar</p>
+            
+            <div className={`result ${showResult ? 'expanded' : ''}`}>
+              {showResult && (
+                <div className="result-content">
+                  {loading ? (
+                    <div className="loading-state">
+                      <BiLoader className="spin-icon-large" />
+                      <p>Analyse des documents officiels en cours...</p>
+                      <p className="sub-text">Vérification des sources et compilation des informations</p>
                     </div>
-                    <div className="points">
-                      <p>...</p>
-                    </div>
-                  </div>
-                  <div className="date">
-                    <div className="date1">
-                      <BiCalendar />
-                      <p><span>Jan</span>, 10/2023</p>
-                    </div>
-                    <div className="date2">
-                      <BiTime />
-                      <p>10:10 <span>AM</span></p>
-                    </div>
-                  </div>
+                  ) : searchResults ? (
+                    <>
+                      <div className="result-header">
+                        <h3 className="title">
+                          <BiCheckCircle style={{ color: '#10b981', marginRight: '8px' }} />
+                          Résultats vérifiés pour: "{inputValue}"
+                        </h3>
+                        <span className="verified-badge">
+                          <MdVerified /> Sources officielles uniquement
+                        </span>
+                      </div>
+
+                      {/* Résumé */}
+                      <div className="summary-section">
+                        <h4><BsFileText /> Résumé des informations officielles</h4>
+                        <div className="summary-content">
+                          {isTyping ? (
+                            <span>{summaryText}<span className="cursor">|</span></span>
+                          ) : (
+                            <span dangerouslySetInnerHTML={{ __html: searchResults.summary }} />
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Sources */}
+                      {searchResults.sources.length > 0 && (
+                        <div className="sources-section">
+                          <h4><MdVerified /> Sources officielles consultées</h4>
+                          <div className="sources-list">
+                            {searchResults.sources.map((source, index) => (
+                              <div key={index} className="source-item">
+                                <MdVerified className="verified-icon" />
+                                <div>
+                                  <a href={source.url} target="_blank" rel="noopener noreferrer">
+                                    {source.name}
+                                  </a>
+                                  <span className="official-tag">Officiel</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Contenu détaillé */}
+                      <div className="contentResult">
+                        {/* Images */}
+                        {searchResults.images.length > 0 && (
+                          <div className="media-section images-section">
+                            <h4><MdImage /> Images et diagrammes officiels</h4>
+                            <div className="media-grid">
+                              {searchResults.images.map((image, index) => (
+                                <div key={index} className="media-card">
+                                  <img src={image.url} alt={image.title} className="media-image" />
+                                  <div className="media-info">
+                                    <p className="media-title">{image.title}</p>
+                                    <p className="media-source">Source: {image.source}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Vidéos */}
+                        {searchResults.videos.length > 0 && (
+                          <div className="media-section videos-section">
+                            <h4><MdVideoLibrary /> Vidéos tutorielles officielles</h4>
+                            <div className="media-grid">
+                              {searchResults.videos.map((video, index) => (
+                                <div key={index} className="media-card">
+                                  <iframe
+                                    src={video.url}
+                                    title={video.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="media-video"
+                                  ></iframe>
+                                  <div className="media-info">
+                                    <p className="media-title">{video.title}</p>
+                                    <p className="media-source">Source: {video.source}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* PDFs */}
+                        {searchResults.pdfs.length > 0 && (
+                          <div className="media-section pdfs-section">
+                            <h4><MdPictureAsPdf /> Documentation complète (PDF)</h4>
+                            <div className="pdf-list">
+                              {searchResults.pdfs.map((pdf, index) => (
+                                <div key={index} className="pdf-card">
+                                  <div className="pdf-icon">
+                                    <MdPictureAsPdf />
+                                  </div>
+                                  <div className="pdf-info">
+                                    <p className="pdf-title">{pdf.title}</p>
+                                    <p className="pdf-meta">
+                                      {pdf.pages} pages • {pdf.source}
+                                    </p>
+                                  </div>
+                                  <button className="download-btn" onClick={this.handleDownload}>Télécharger</button>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="result-footer">
+                        <p className="disclaimer">
+                          <BsShieldCheck /> Toutes les informations proviennent de sources officielles vérifiées.
+                          Aucun contenu promotionnel ou désinformation.
+                        </p>
+                      </div>
+                    </>
+                  ) : null}
                 </div>
-              </div>
-              <div className="notify">
-                <div className="shadow">
-                  <div className="content">
-                    <MdDelete />
-                    <BiEditAlt />
-                  </div>
-                </div>
-                <div className="notify_content">
-                  <div className="titre">
-                    <div className="ttr">
-                      <h4>Anniv Yas <span><BsStars /></span></h4>
-                      <p>Anniversaire de Yas | Madagascar</p>
-                    </div>
-                    <div className="points">
-                      <p>...</p>
-                    </div>
-                  </div>
-                  <div className="date">
-                    <div className="date1">
-                      <BiCalendar />
-                      <p><span>Jan</span>, 10/2023</p>
-                    </div>
-                    <div className="date2">
-                      <BiTime />
-                      <p>10:10 <span>AM</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
-          </div>
-          <div className="assignement">
-            <div className="title">
-              <h4>Assignement</h4>
-              <div className="edit">
-                <BiEditAlt />
-                <p>Edit</p>
-              </div>
-            </div>
-            <div className="content">
-              <div className="list">
-                <div className="titre">
-                  <p>Design</p>
-                  <span>...</span>
-                </div>
-                <div className="cont">
-                  <h4>Design a packaging concept for a new product</h4>
-                  <p>Lorem</p>
-                </div>
-                <div className="btn">
-                  <p>Lorem ipsum</p>
-                  <span><BiEditAlt /></span>
-                </div>
-              </div>
-            </div>
-            <div className="btna">
-              <div className="add">
-                <MdAdd className='add_icon'/>
-              </div>
-              <p>Add new assignement</p>
-            </div>
-          </div>
-          <div className="agenda">
-            <div className="title">
-              <h3>May 2025</h3>
-              <div className="icons">
-                <BiArrowToLeft className='p'/>
-                <BiArrowToRight className='p'/>
-              </div>
-            </div>
-            <div className="calendar">
-              <div className="dates">
-                <p>Lun</p>
-                <span>9</span>
-              </div>
-              <div className="dates">
-                <p>Mar</p>
-                <span>10</span>
-              </div>
-              <div className="dates">
-                <p>Mer</p>
-                <span>11</span>
-              </div>
-              <div className="dates">
-                <p>Jeu</p>
-                <span className='active'>12</span>
-              </div>
-              <div className="dates">
-                <p>Ven</p>
-                <span>13</span>
-              </div>
-              <div className="dates">
-                <p>Sam</p>
-                <span>14</span>
-              </div>
-              <div className="dates">
-                <p>Dim</p>
-                <span>15</span>
-              </div>
-            </div>
-            <div className="content">
-              <div className="times">
-                <p>04:30 - 05:30 PM <span>.................................................................</span></p>
-              </div>
-              <div className="plane">
-                <div className="pln">
-                  <MdMeetingRoom className='icon'/>
-                  <h3>Team meeting <br /><span>04:30 - 05:30 PM</span></h3>
-                </div>
-                <p className='point'>...</p>
-              </div>
-              <div className="times">
-                <p>11:30 - 12:30 PM <span>................................................................</span></p>
-              </div>
-              <div className="plane">
-                <div className="pln">
-                  <BsBagCheck className='icon'/>
-                  <h3>Meeting with new client <br /><span>04:30 - 05:30 PM</span></h3>
-                </div>
-                <p className='point'>...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="task_update_chart">
-          <div className="task">
-            <div className="title">
-              <div className="titre">
-                <h3>Today tasks</h3>
-                <div className="icon">
-                  <BiCustomize />
-                  <BiUserCircle />
-                  <MdAddCircle />
-                </div>
-              </div>
-              <div className="outils">
-                <div className="edit">
-                  <BiEditAlt />
-                  <p>Edit</p>
-                </div>
-                <div className="share">
-                  <BiShareAlt />
-                  <p>Share</p>
-                </div>
-              </div>
-            </div>
-            <div className="content">
-              <div className="lists">
-                <div className="shadow">
-                  <div className="content">
-                    <BiEditAlt />
-                    <BiShareAlt />
-                  </div>
-                </div>
-                <div className="list">
-                  <div className="titre">
-                    <h3>Integration front-back</h3>
-                    <p>Sam, 10:10</p>
-                  </div>
-                  <div className="progress">
-                    <p>90%</p>
-                    <span></span>
-                  </div>
-                  <div className="desc">
-                    <span className='span'></span>
-                    <p>Prèsque</p>
-                  </div>
-                </div>
-              </div>
-              <div className="lists">
-                <div className="shadow">
-                  <div className="content">
-                    <BiEditAlt />
-                    <BiShareAlt />
-                  </div>
-                </div>
-                <div className="list">
-                  <div className="titre">
-                    <h3>Integration front-back</h3>
-                    <p>Sam, 10:10</p>
-                  </div>
-                  <div className="progress">
-                    <p>90%</p>
-                    <span></span>
-                  </div>
-                  <div className="desc">
-                    <span className='span'></span>
-                    <p>Prèsque</p>
-                  </div>
-                </div>
-              </div>
-              <div className="lists">
-                <div className="shadow">
-                  <div className="content">
-                    <BiEditAlt />
-                    <BiShareAlt />
-                  </div>
-                </div>
-                <div className="list">
-                  <div className="titre">
-                    <h3>Integration front-back</h3>
-                    <p>Sam, 10:10</p>
-                  </div>
-                  <div className="progress">
-                    <p>90%</p>
-                    <span></span>
-                  </div>
-                  <div className="desc">
-                    <span className='span'></span>
-                    <p>Prèsque</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="update">
-            <div className="sary">
-            </div>
-            <div className="dark"></div>
-            <div className="content">
-              <div className="go">
-                <h3>GO</h3>
-                <p>Prenium</p>
-              </div>
-              <div className="btn">
-                <p>Obtenir</p>
-              </div>
-            </div>
-          </div>
-          <div className="chart"></div>
-        </div>
+          </section>
+        </main>
       </div>
-    )
+    );
   }
 }
 

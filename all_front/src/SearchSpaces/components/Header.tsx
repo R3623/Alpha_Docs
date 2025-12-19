@@ -5,6 +5,7 @@ import Photo from '../assets/user.png'
 import '../assets/HeaderStyle.scss'
 import { CgOptions } from 'react-icons/cg'
 import { useAuth } from '../../context/AuthContext'
+import { NavLink } from 'react-router-dom'
 
 const Header: React.FC = () => {
   const { user } = useAuth();
@@ -16,13 +17,13 @@ const Header: React.FC = () => {
         <div className="selected">
           <CgOptions />
         </div>
+        <NavLink to='/SapceUser' className="wrokflow">
+          <MdWork />
+          <p>Accueil</p>
+        </NavLink>
         <div className="tdb">
           <MdDashboard />
           <p>Dashboard</p>
-        </div>
-        <div className="wrokflow">
-          <MdWork />
-          <p>Workflows</p>
         </div>
         <div className="int">
           <MdIntegrationInstructions />

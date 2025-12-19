@@ -107,7 +107,6 @@ const Header: React.FC<HeaderProps> = () => {
           S'inscrire
         </Link>
       </div>
-
       <div className="menuToggle" onClick={toggleMenu}>
         {menuOpen ? <BiX /> : <BiMenu />}
       </div>

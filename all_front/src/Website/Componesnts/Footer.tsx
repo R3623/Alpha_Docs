@@ -55,12 +55,12 @@ const Footer = () => {
             <Link to="/services">
               <p>Services</p>
             </Link>
-            <Link to="/contact">
+            {/* <Link to="/contact">
               <p>Contact</p>
             </Link>
             <Link to="/documentation">
               <p>Documentation</p>
-            </Link>
+            </Link> */}
           </div>
           
           <div className="reseau_sociaux">
