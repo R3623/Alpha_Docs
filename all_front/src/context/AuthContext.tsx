@@ -2,6 +2,9 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import axios from 'axios';
 
+// Set base URL for API calls
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
+
 // Configure axios to include JWT token in requests
 axios.interceptors.request.use(
   (config) => {

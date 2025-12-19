@@ -1,0 +1,33 @@
+services:
+  web:
+    build: ./all_front
+    expose:
+      - "3000"
+    depends_on:
+      - api
+    networks:
+      - internal
+
+  api:
+    build: ./backend
+    expose:
+      - "8001"
+    environment:
+      - DJANGO_SETTINGS_MODULE=backend.settings
+      - DEBUG=False
+      - SECRET_KEY=django-insecure-prod-key-change-this
+      - ALLOWED_HOSTS=web,api,localhost,127.0.0.1
+      - DB_HOST=postgres
+      - DB_NAME=postgres
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_PORT=5432
+    networks:
+      - internal
+      - db-network
+
+networks:
+  internal:
+    driver: bridge
+  db-network:
+    external: true

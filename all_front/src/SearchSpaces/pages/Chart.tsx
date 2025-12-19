@@ -17,7 +17,7 @@ import {
   Pie,
   Cell,
 } from "recharts" 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+// Using simple divs instead of Card components for deployment
 import { TrendingUp, TrendingDown, DollarSign, Users, Activity, BarChart3 } from "lucide-react"
 import "../../assets/chart.scss"
 
@@ -139,12 +139,12 @@ export default function ChartPage() {
 
       {/* Section Revenue Chart */}
       <section className="chart-section">
-        <Card className="chart-card">
-          <CardHeader className="chart-card__header">
-            <CardTitle className="chart-card__title">Revenue Analysis</CardTitle>
+        <div className="chart-card">
+          <div className="chart-card__header">
+            <h3 className="chart-card__title">Revenue Analysis</h3>
             <p className="chart-card__description">Comparison of revenue, expenses, and profit over 6 months</p>
-          </CardHeader>
-          <CardContent className="chart-card__content">
+          </div>
+          <div className="chart-card__content">
             <div className="chart-container">
               <ResponsiveContainer width="100%" height={350}>
                 <AreaChart data={revenueData}>
@@ -199,8 +199,8 @@ export default function ChartPage() {
                 </AreaChart>
               </ResponsiveContainer>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </section>
 
       {/* Section Traffic & Performance */}
@@ -208,12 +208,12 @@ export default function ChartPage() {
         <div className="chart-grid-section__grid">
           {/* Traffic Chart */}
           <div className="chart-grid-section__item">
-            <Card className="chart-card">
-                <CardHeader className="chart-card__header">
-                <CardTitle className="chart-card__title">Weekly Traffic</CardTitle>
+            <div className="chart-card">
+                <div className="chart-card__header">
+                <h3 className="chart-card__title">Weekly Traffic</h3>
                 <p className="chart-card__description">Visitors and page views per day</p>
-              </CardHeader>
-              <CardContent className="chart-card__content">
+              </div>
+              <div className="chart-card__content">
                 <div className="chart-container">
                   <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={trafficData}>
@@ -229,18 +229,18 @@ export default function ChartPage() {
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           {/* Performance Chart */}
           <div className="chart-grid-section__item">
-            <Card className="chart-card">
-                <CardHeader className="chart-card__header">
-                <CardTitle className="chart-card__title">Quarterly Performance</CardTitle>
+            <div className="chart-card">
+                <div className="chart-card__header">
+                <h3 className="chart-card__title">Quarterly Performance</h3>
                 <p className="chart-card__description">Targets vs Actuals</p>
-              </CardHeader>
-              <CardContent className="chart-card__content">
+              </div>
+              <div className="chart-card__content">
                 <div className="chart-container">
                   <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={performanceData}>
@@ -263,20 +263,20 @@ export default function ChartPage() {
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Section Category Distribution */}
       <section className="chart-section">
-        <Card className="chart-card">
-          <CardHeader className="chart-card__header">
-            <CardTitle className="chart-card__title">Category Distribution</CardTitle>
+        <div className="chart-card">
+          <div className="chart-card__header">
+            <h3 className="chart-card__title">Category Distribution</h3>
             <p className="chart-card__description">Resource allocation by department</p>
-          </CardHeader>
-          <CardContent className="chart-card__content">
+          </div>
+          <div className="chart-card__content">
             <div className="chart-container chart-container--centered">
               <ResponsiveContainer width="100%" height={350}>
                 <PieChart>
@@ -309,8 +309,8 @@ export default function ChartPage() {
                 ))}
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </section>
     </div>
   )
