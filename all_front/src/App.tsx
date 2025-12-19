@@ -10,33 +10,36 @@ import WebsiteRoutes from './Website_routes';
 import UserSpace from './UserSpace';
 
 function AppRoutes() {
-  const { isAuthenticated, loading } = useAuth();
+  //const { isAuthenticated, loading } = useAuth();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  //if (loading) {
+    //return <div>Loading...</div>;
+  //}
 
   return (
     <Routes>
-      <Route path='/' element={
-        isAuthenticated ? <Navigate to="/SpaceUser" replace /> : <WebsiteRoutes />
-      } />
+      <Route path='/' 
+      //element={
+       // isAuthenticated ? <Navigate to="/SpaceUser" replace /> : <WebsiteRoutes />
+      //}
+      element=''
+       />
       <Route path='/connect/*' element={<ConnectRoutes />} />
       <Route path='/SpaceUser/*' element={
-        <ProtectedRoute>
+        //<ProtectedRoute>
           <UserSpace />
-        </ProtectedRoute>
+        //</ProtectedRoute>
       } />
       <Route path="/SearchSpace/*" element={
-        <ProtectedRoute>
+        //<ProtectedRoute>
           <RespoRoutes />
-        </ProtectedRoute>
+        //</ProtectedRoute>
       } />
       {/* Catch-all route for authenticated users */}
-      <Route path='*' element={
+     {/*<Route path='*' element={
         isAuthenticated ? <Navigate to="/SpaceUser" replace /> : <Navigate to="/" replace />
-      } />
-    </Routes>
+      } /> */}
+    </Routes> 
   );
 }
 
